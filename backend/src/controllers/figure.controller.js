@@ -119,8 +119,9 @@ exports.uploadFigureImage = async (req, res) => {
       'Content-Type': req.file.mimetype,
     });
 
-    const protocol = process.env.MINIO_USE_SSL === 'true' ? 'https' : 'http';
-    const publicUrl = `${protocol}://${process.env.MINIO_PUBLIC_HOST || req.get('host').split(':')[0] + ':' + process.env.MINIO_PORT}/${BUCKET_NAME}/${objectKey}`;
+    const publicUrl = process.env.MINIO_PUBLIC_URL
+      ? `${process.env.MINIO_PUBLIC_URL}/${BUCKET_NAME}/${objectKey}`
+      : `${process.env.MINIO_USE_SSL === 'true' ? 'https' : 'http'}://${process.env.MINIO_PUBLIC_HOST || req.get('host').split(':')[0] + ':' + process.env.MINIO_PORT}/${BUCKET_NAME}/${objectKey}`;
 
     figure.profileImage = { objectKey, url: publicUrl };
     await figure.save();
