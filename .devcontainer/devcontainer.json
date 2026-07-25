@@ -1,0 +1,24 @@
+{
+  "name": "Tugas Besar Full-Stack",
+  "dockerComposeFile": "../docker-compose.yml",
+  "service": "backend",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "forwardPorts": [3000, 5000, 9000, 9001, 27017],
+  "portsAttributes": {
+    "3000": { "label": "Frontend (Next.js)" },
+    "5000": { "label": "Backend API" },
+    "9000": { "label": "MinIO API" },
+    "9001": { "label": "MinIO Console" }
+  },
+  "postCreateCommand": "cp backend/.env.example backend/.env && cp frontend/.env.example frontend/.env && echo 'Env files siap. Jalankan: docker-compose up --build'",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "mongodb.mongodb-vscode",
+        "42Crunch.vscode-openapi"
+      ]
+    }
+  }
+}
