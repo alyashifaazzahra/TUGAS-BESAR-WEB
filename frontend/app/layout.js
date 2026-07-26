@@ -1,7 +1,7 @@
 import './globals.css';
 
 export const metadata = {
-  title: 'Platform Figur Populer',
+  title: 'FigurAI',
   description: 'Tugas Besar Full-Stack Web Development',
 };
 
@@ -11,7 +11,7 @@ export default function RootLayout({ children }) {
       <body>
         <nav className="bg-slate-900 text-white px-6 py-4 flex items-center justify-between">
           <a href="/" className="font-bold text-lg">
-            Platform Figur Populer
+            FigurAI
           </a>
           <a href="/ai" className="text-sm text-slate-300 hover:text-white">
             Tanya AI
